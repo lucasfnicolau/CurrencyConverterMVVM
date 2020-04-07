@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Currency {
+enum CurrencyType {
     case dollar
     case euro
     case sterling
@@ -17,8 +17,8 @@ enum Currency {
 
 class CurrencyTextField: UITextField {
     var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    var currency: Currency = .dollar
-    var currencyImageView: UIImageView?
+    var currencyType: CurrencyType = .dollar
+    var currencyTypeImageView: UIImageView?
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +26,8 @@ class CurrencyTextField: UITextField {
     }
 
     func setLayout() {
-        currencyImageView = UIImageView(image: symbol(for: .dollar))
-        guard let imageView = currencyImageView else { return }
+        currencyTypeImageView = UIImageView(image: symbol(for: .dollar))
+        guard let imageView = currencyTypeImageView else { return }
         imageView.tintColor = .white
         self.addSubview(imageView)
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -49,14 +49,14 @@ class CurrencyTextField: UITextField {
         super.draw(rect)
     }
 
-    func setTo(currency: Currency) {
-        currencyImageView?.image = symbol(for: currency)
+    func setTo(currencyType: CurrencyType) {
+        currencyTypeImageView?.image = symbol(for: currencyType)
     }
 
-    func symbol(for currency: Currency) -> UIImage {
+    func symbol(for currencyType: CurrencyType) -> UIImage {
         let image: UIImage?
 
-        switch currency {
+        switch currencyType {
         case .dollar:
             image = UIImage(systemName: "dollarsign.square.fill")
         case .euro:
