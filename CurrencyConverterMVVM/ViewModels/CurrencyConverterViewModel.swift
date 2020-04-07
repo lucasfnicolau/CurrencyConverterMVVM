@@ -9,6 +9,7 @@
 import Foundation
 
 protocol CurrencyConverterViewModel {
-    var currencyFrom: Currency { get }
-    var currencyTo { get }
+    var brlValue: Double { get }
+    var currencyTo: Currency { get }
+    func convert(to currencyType: CurrencyType)
 }

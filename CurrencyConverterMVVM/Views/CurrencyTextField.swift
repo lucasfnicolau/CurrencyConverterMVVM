@@ -15,7 +15,13 @@ enum CurrencyType {
     case yen
 }
 
+@IBDesignable
 class CurrencyTextField: UITextField {
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        setLayout()
+    }
+
     var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var currencyType: CurrencyType = .dollar
     var currencyTypeImageView: UIImageView?
