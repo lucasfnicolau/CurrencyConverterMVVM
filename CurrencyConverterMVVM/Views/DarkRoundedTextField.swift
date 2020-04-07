@@ -29,6 +29,9 @@ class DarkRoundedTextField: UITextField {
         self.clipsToBounds = true
         self.font = self.font?.withSize(30)
         self.textAlignment = .center
+        self.returnKeyType = .done
+        self.attributedPlaceholder = NSAttributedString(string: "R$ value", attributes: [
+            NSAttributedString.Key.foregroundColor: UIColor.lightGray
+        ])
     }
-
 }

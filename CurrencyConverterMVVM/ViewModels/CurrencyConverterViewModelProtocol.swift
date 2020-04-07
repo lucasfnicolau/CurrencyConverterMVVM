@@ -10,5 +10,5 @@ import Foundation
 
 protocol CurrencyConverterViewModelProtocol {
     var currencies: [CurrencyType: Currency] { get }
-    func convert(brlValue: Double, to currencyType: CurrencyType) -> Double
+    func convert(_ brlValue: Double, to currencyType: CurrencyType) -> String
 }

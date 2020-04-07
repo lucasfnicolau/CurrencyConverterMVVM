@@ -17,11 +17,12 @@ class CurrencyConverterViewModel: NSObject, CurrencyConverterViewModelProtocol {
         self.currencies[.dollar] = Currency(currencyType: .dollar, rate: 0.19)
         self.currencies[.euro] = Currency(currencyType: .euro, rate: 0.18)
         self.currencies[.sterling] = Currency(currencyType: .dollar, rate: 0.16)
-        self.currencies[.dollar] = Currency(currencyType: .dollar, rate: 20.83)
+        self.currencies[.yen] = Currency(currencyType: .dollar, rate: 20.83)
     }
 
-    func convert(brlValue: Double, to currencyType: CurrencyType) -> Double {
-        return brlValue * (currencies[currencyType]?.rate ?? 1)
+    func convert(_ brlValue: Double, to currencyType: CurrencyType) -> String {
+        let newValue = brlValue * (currencies[currencyType]?.rate ?? 1)
+        return String(format: "%.2f", newValue)
     }
 
 }

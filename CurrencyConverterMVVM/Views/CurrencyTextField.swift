@@ -43,6 +43,7 @@ class CurrencyTextField: DarkRoundedTextField {
             imageView.widthAnchor.constraint(equalToConstant: self.frame.height * 0.8)
         ])
         super.setLayout()
+        self.attributedPlaceholder = nil
     }
 
     func setTo(currencyType: CurrencyType) {
