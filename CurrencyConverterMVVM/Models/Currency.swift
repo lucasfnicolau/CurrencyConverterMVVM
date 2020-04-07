@@ -9,7 +9,6 @@
 import Foundation
 
 struct Currency {
-    var value: Double
     var currencyType: CurrencyType
     var rate: Double
 }

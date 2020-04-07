@@ -16,22 +16,21 @@ enum CurrencyType {
 }
 
 @IBDesignable
-class CurrencyTextField: UITextField {
-    override func prepareForInterfaceBuilder() {
-        super.prepareForInterfaceBuilder()
-        setLayout()
-    }
+class CurrencyTextField: DarkRoundedTextField {
 
     var padding = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     var currencyType: CurrencyType = .dollar
     var currencyTypeImageView: UIImageView?
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setLayout()
+    override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
     }
 
-    func setLayout() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+    }
+
+    override func setLayout() {
         currencyTypeImageView = UIImageView(image: symbol(for: .dollar))
         guard let imageView = currencyTypeImageView else { return }
         imageView.tintColor = .white
@@ -43,16 +42,7 @@ class CurrencyTextField: UITextField {
             imageView.heightAnchor.constraint(equalToConstant: self.frame.height * 0.8),
             imageView.widthAnchor.constraint(equalToConstant: self.frame.height * 0.8)
         ])
-        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.8045804795)
-        self.textColor = .white
-        self.keyboardType = .decimalPad
-        self.layer.cornerRadius = 10
-        self.clipsToBounds = true
-        self.font = self.font?.withSize(30)
-    }
-
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+        super.setLayout()
     }
 
     func setTo(currencyType: CurrencyType) {
